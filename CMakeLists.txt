@@ -7,7 +7,12 @@ set(CMAKE_CXX_STANDARD 17)
 set(SFML_DIR "${CMAKE_SOURCE_DIR}/external/SFML")
 
 include_directories(${SFML_DIR}/include)
-link_directories(${SFML_DIR}/lib)
+
+if(WIN32)
+    link_directories(${SFML_DIR}/lib/Windows)
+else()
+    link_directories(${SFML_DIR}/lib/MacOS)
+endif()
 
 add_executable(HexMap 
     src/main.cpp
