@@ -1,6 +1,8 @@
 #include "HexMap.hpp"
 #include <cmath>
 
+constexpr double PI = 3.14159265358979323846;
+
 HexMap::HexMap(unsigned int rows, unsigned int cols, float radius)
     : m_rows(rows), m_cols(cols), m_radius(radius) {
     generate();
@@ -34,7 +36,7 @@ sf::ConvexShape HexMap::createHexagon(float x, float y, float radius) const {
     sf::ConvexShape hex;
     hex.setPointCount(6);
     for (int i = 0; i < 6; ++i) {
-        float angle = M_PI / 3.f * i - M_PI / 6.f; // flat-topped
+        float angle = PI / 3.f * i - PI / 6.f; // flat-topped
         hex.setPoint(i, sf::Vector2f(
             radius * std::cos(angle),
             radius * std::sin(angle)
