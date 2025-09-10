@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(MySFMLProject)
+project(HexMap)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -9,9 +9,12 @@ set(SFML_DIR "${CMAKE_SOURCE_DIR}/external/SFML")
 include_directories(${SFML_DIR}/include)
 link_directories(${SFML_DIR}/lib)
 
-add_executable(MySFMLProject src/main.cpp)
+add_executable(HexMap 
+    src/main.cpp
+    src/HexMap.cpp
+)
 
-target_link_libraries(MySFMLProject
+target_link_libraries(HexMap
     sfml-graphics
     sfml-window
     sfml-system
